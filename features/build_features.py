@@ -107,7 +107,8 @@ def main():
     # Optional cleanup: drop the heavy long-term rolling rain sums if you only want SPI
     df_merged.drop(columns=['rain_rolling_30d', 'rain_rolling_90d', 'rain_rolling_180d'], inplace=True)
             
-    print("Saving master feature matrix...")
+    print("Filtering and saving master feature matrix...")
+    df_merged = df_merged[df_merged['date'] >= '2015-01-01']
     df_merged = df_merged.round(3)
     df_merged.to_csv('data/master_feature_matrix.csv', index=False)
     

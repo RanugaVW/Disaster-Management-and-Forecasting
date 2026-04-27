@@ -49,6 +49,8 @@ def fetch_data(
     lon: float,
     daily: list | None = None,
     hourly: list | None = None,
+    start_date: str | None = None,
+    end_date: str | None = None,
 ) -> dict | None:
     """
     Fetch data from the Open-Meteo historical archive API.
@@ -61,6 +63,8 @@ def fetch_data(
         Daily variable names (e.g. ["temperature_2m_mean", "rain_sum"]).
     hourly : list[str], optional
         Hourly variable names (e.g. ["soil_moisture_7_to_28cm"]).
+    start_date, end_date : str, optional
+        Y-M-D strings. If None, uses defaults from utils.py.
 
     Returns
     -------
@@ -70,8 +74,8 @@ def fetch_data(
     params: dict = {
         "latitude":           lat,
         "longitude":          lon,
-        "start_date":         START_DATE,
-        "end_date":           END_DATE,
+        "start_date":         start_date or START_DATE,
+        "end_date":           end_date or END_DATE,
         "timezone":           TIMEZONE,
         "temporal_resolution": "native",
     }
