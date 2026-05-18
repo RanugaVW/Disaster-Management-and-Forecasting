@@ -1,0 +1,12 @@
+
+============================================================
+ Training Landslide Ensemble Model
+============================================================
+
+Required features: ['rain_sum', 'temperature_2m_mean', 'soil_moisture_7_to_28cm', 'soil_moisture_28_to_100cm', 'soil_moisture_100_to_255cm', 'rain_lag_1', 'rain_rolling_3d', 'rain_rolling_7d', 'month_sin', 'month_cos', 'spi', 'division_encoded']
+
+
+  Loading: /home/ranuga-weerasekara/Desktop/Disaster-Management-and-Forecasting/Model Training and Validation/Scripts/../Datasets/training_data_Landslide.csv
+  Train: 337,760  |  Val: 59,604
+
+  [XGBoost] Running 5 Optuna trials...

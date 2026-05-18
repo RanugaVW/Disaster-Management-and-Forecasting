@@ -1,0 +1,43 @@
+{
+  "type": "LANDSLIDE",
+  "notes": {
+    "moist_raw_range": "0–4095, higher = wetter (capacitive sensor assumed)",
+    "tilt_deg": "computed: atan2(sqrt(ax²+ay²), az) × (180/π)",
+    "rapid_tilt": "flagged if |gx| or |gy| > 1.0 deg/s sustained"
+  },
+  "thresholds": [
+    {
+      "label": "Normal",
+      "moist_raw": { "max": 1229 },
+      "moist_pct": { "max": 30 },
+      "tilt_deg": { "max": 1 },
+      "hum_pct": "any",
+      "temp_c": "any"
+    },
+    {
+      "label": "Moderate",
+      "moist_raw": { "min": 1229, "max": 2048 },
+      "moist_pct": { "min": 30, "max": 50 },
+      "tilt_deg": { "min": 1, "max": 3 },
+      "hum_pct": { "min": 70 },
+      "temp_c": "any"
+    },
+    {
+      "label": "Severe",
+      "moist_raw": { "min": 2048, "max": 2457 },
+      "moist_pct": { "min": 50, "max": 60 },
+      "tilt_deg": { "min": 3, "max": 5 },
+      "hum_pct": { "min": 80 },
+      "temp_c": { "min": 15, "max": 30 }
+    },
+    {
+      "label": "Extreme",
+      "moist_raw": { "min": 2457 },
+      "moist_pct": { "min": 60 },
+      "tilt_deg": { "min": 5 },
+      "rapid_tilt_change": true,
+      "hum_pct": { "min": 85 },
+      "temp_c": "sudden_drop_or_rise"
+    }
+  ]
+}
